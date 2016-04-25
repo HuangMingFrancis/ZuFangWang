@@ -62,6 +62,10 @@ public class Configs {
     public static final String DELETE_MESSAGE=URL+"deletemessage";
     //添加商品图片信息
     public static final String ADD_IMGS=URL+"insertimg";
+    //用户登录
+    public static final String USE_LOGIN=URL+"login";
+    //用户注册
+    public static final String USE_REGISTER=URL+"register";
 
     //请求出错
     public static final String URLERROR="网络请求出错,请检查!";

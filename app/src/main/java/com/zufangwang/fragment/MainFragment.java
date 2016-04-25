@@ -27,6 +27,8 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private MainCourseFragment mCouresFragment;
     private ReleaseFragment mMessageFragment;
     private MarketFragment mMarketFragment;
+    private HomePageFragment mHomePageFragment;
+    private HouseReleaseFragment mHouseReleaseFragment;
 
     public Fragment getmCurrentFragment() {
         return mCurrentFragment;
@@ -66,12 +68,16 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private void initFragment() {
         mCouresFragment = new MainCourseFragment();
         mMessageFragment = new ReleaseFragment();
+        mHouseReleaseFragment=new HouseReleaseFragment();
         mMarketFragment=new MarketFragment();
+        mHomePageFragment=new HomePageFragment();
 //        mCurrentFragment = mCouresFragment;
-        mCurrentFragment=mMarketFragment;
+//        mCurrentFragment=mMarketFragment;
+        mCurrentFragment=mHomePageFragment;
         mFragmentManager = ((AppCompatActivity) mContext).getSupportFragmentManager();
 //        mFragmentManager.beginTransaction().add(R.id.fragment_main_mainContainer, mCouresFragment).commit();
-        mFragmentManager.beginTransaction().add(R.id.fragment_main_mainContainer, mMarketFragment).commit();
+//        mFragmentManager.beginTransaction().add(R.id.fragment_main_mainContainer, mMarketFragment).commit();
+        mFragmentManager.beginTransaction().add(R.id.fragment_main_mainContainer, mHomePageFragment).commit();
     }
 
     @Override
@@ -96,29 +102,39 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 //            if (mCurrentFragment == mCouresFragment) {
 //                return;
 //            }
-            if (mCurrentFragment == mMarketFragment) {
+//            if (mCurrentFragment == mMarketFragment) {
+//                return;
+//            }
+            if (mCurrentFragment == mHomePageFragment) {
                 return;
             }
             v = mCourseText;
 //            mCurrentFragment = mCouresFragment;
-            mCurrentFragment=mMarketFragment;
+//            mCurrentFragment=mMarketFragment;
+            mCurrentFragment=mHomePageFragment;
         } else {
-            if (mCurrentFragment == mMessageFragment) {
+//            if (mCurrentFragment == mMessageFragment) {
+//                return;
+//            }
+            if (mCurrentFragment == mHouseReleaseFragment) {
                 return;
             }
             v = mMessageText;
-            mCurrentFragment = mMessageFragment;
+//            mCurrentFragment = mMessageFragment;
+            mCurrentFragment = mHouseReleaseFragment;
         }
         if (v.getId() == R.id.tv_main_course) {
             ((AppCompatActivity) mContext).getSupportActionBar().setTitle("二手市场");
 //            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mCouresFragment).commit();
-            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mMarketFragment).commit();
+//            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mMarketFragment).commit();
+            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mHomePageFragment).commit();
             ((TextView) v).setTextColor(getResources().getColor(R.color.colorBottomTextSelected));
             mMessageText.setTextColor(getResources().getColor(R.color.colorBottomTextNoSelected));
             ((MainActivity) mContext).selectNevigationText(DrawerBaseActivity.COURSE);
         } else {
             ((AppCompatActivity) mContext).getSupportActionBar().setTitle("发布");
-            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mMessageFragment).commit();
+//            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mMessageFragment).commit();
+            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mHouseReleaseFragment).commit();
             ((TextView) v).setTextColor(getResources().getColor(R.color.colorBottomTextSelected));
             mCourseText.setTextColor(getResources().getColor(R.color.colorBottomTextNoSelected));
             ((MainActivity) mContext).selectNevigationText(DrawerBaseActivity.MESSAGE);
@@ -126,7 +142,8 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         }
 
 //        ((MainActivity) mContext).setmCurrentFragment(mCouresFragment);
-        ((MainActivity) mContext).setmCurrentFragment(mMarketFragment);
+//        ((MainActivity) mContext).setmCurrentFragment(mMarketFragment);
+        ((MainActivity) mContext).setmCurrentFragment(mHomePageFragment);
 
     }
 

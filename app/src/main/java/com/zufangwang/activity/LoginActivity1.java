@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.google.gson.Gson;
+import com.zufangwang.base.Configs;
 import com.zufangwang.entity.User;
 import com.zufangwang.francis.zufangwang.R;
 import com.zufangwang.utils.OkHttpClientManager;
@@ -48,7 +50,6 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case LOGING:
-                    Log.i("ming","msg: "+msg.obj.toString());
                     if (msg.obj!=null){
                         User user1=new Gson().fromJson(msg.obj.toString(),User.class);
                         if (user1!=null){
@@ -83,7 +84,6 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
                         dialog_confirm_login=builder.create();
                         dialog_confirm_login.show();
                     }
-                    Log.i("ming","reponse:"+msg.obj.toString());
                     break;
             }
 
@@ -212,10 +212,10 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
 //            }
 //        });
 
-        OkHttpClientManager.postAsyn("http://192.168.253.1:8080/Taobao/login", new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(Configs.USE_LOGIN, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
-
+                Toast.makeText(getApplication(), Configs.URLERROR,Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -264,10 +264,10 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
 //                handler.sendMessage(message);
 //            }
 //        });
-        OkHttpClientManager.postAsyn("http://192.168.253.1:8080/Taobao/register", new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(Configs.USE_REGISTER, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
-
+                Toast.makeText(getApplication(), Configs.URLERROR,Toast.LENGTH_SHORT).show();
             }
 
             @Override
