@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 
     <application
         android:name="com.zufangwang.application.kechengpaiApp"
@@ -21,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.zufangwang.activity.LoginActivity" />
         <activity android:name="com.zufangwang.activity.MainActivity" />
         <activity android:name="com.zufangwang.activity.SearchActivity" />
         <activity android:name="com.zufangwang.activity.CourseActivity" />
@@ -34,7 +34,13 @@
         <activity android:name="com.zufangwang.activity.GoodDesActivity" />
         <activity android:name="com.zufangwang.activity.MyNotificationDesActivity" />
         <activity android:name="com.zufangwang.activity.HouseDesActivity" />
-        <activity android:name="com.zufangwang.activity.HouseListActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <activity android:name="com.zufangwang.activity.HouseListActivity" />
+        <activity android:name="com.zufangwang.activity.EditAccountActivity" />
+        <activity android:name="com.zufangwang.activity.ReleaseHouseActivity" />
+        <activity android:name="com.zufangwang.activity.ReleaseHouseDesActivity" />
+        <activity android:name="com.zufangwang.activity.RentalActivity" />
+        <activity android:name="com.zufangwang.activity.HouseList1Activity" />
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

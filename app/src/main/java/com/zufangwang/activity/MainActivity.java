@@ -29,13 +29,11 @@ import android.widget.Toast;
 import com.zufangwang.adapter.NotificationAdapter;
 import com.zufangwang.base.Configs;
 import com.zufangwang.base.DrawerBaseActivity;
-import com.zufangwang.fragment.HomePageFragment;
-import com.zufangwang.fragment.HouseReleaseFragment;
+import com.zufangwang.fragment.ReleaseHouseFragment;
 import com.zufangwang.fragment.MainFragment;
 import com.zufangwang.fragment.MarketFragment;
 import com.zufangwang.listener.OnItemClickListener;
 import com.zufangwang.fragment.MainCourseFragment;
-import com.zufangwang.fragment.ReleaseFragment;
 import com.zufangwang.francis.zufangwang.R;
 import com.zufangwang.utils.ActivityCollector;
 import com.zufangwang.utils.FileTools;
@@ -346,7 +344,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 //                img1.setImageBitmap(bit);
                 File file = FileTools.getFileByUri(this,photoUri);
                 mCurrentFragment=mMainFragment.getmCurrentFragment();
-                ((HouseReleaseFragment)mCurrentFragment).setImageView(bit);
+                ((ReleaseHouseFragment)mCurrentFragment).setImageView(bit);
                 break;
         }
         super.onActivityResult(requestCode, resultCode, data);

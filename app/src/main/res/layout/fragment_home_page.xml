@@ -11,8 +11,9 @@
             android:layout_height="5dp"
             android:background="#dddddd"/>
         <android.support.v7.widget.RecyclerView
+            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="240dp"
             android:id="@+id/recycle_house"/>
         <ImageView
             android:layout_width="match_parent"
@@ -27,9 +28,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="更多出租房源"
+                android:textSize="16sp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimary"
                 />
         </RelativeLayout>
@@ -43,6 +45,7 @@
             android:background="#ffffff"
             >
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/tv_rental"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,6 +64,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_individual_housing"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -72,6 +76,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_spacious_master_bedroom"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -83,6 +88,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_charge_one_to_pay"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -100,6 +106,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_easy_communication"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -111,6 +118,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_quality_short_rent"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -122,6 +130,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_single_apartment"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -140,6 +149,7 @@
             android:background="#ffffff"
             >
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/tv_second_hand_housing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,6 +168,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_price_listings"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -169,6 +180,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_just_need_to_home"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -180,6 +192,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_school_district_housing"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -197,6 +210,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_tax_exempt_listings"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -208,6 +222,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_improve_sanju"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -219,6 +234,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_improvement_room"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -236,6 +252,7 @@
             android:background="#ffffff"
             >
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/tv_new_house"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -254,6 +271,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_quality_new_plate"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -265,6 +283,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_two_bedroom_houses"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -276,6 +295,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_three_bedroom_houses"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -293,6 +313,7 @@
             android:background="#ffffff"
             >
             <TextView
+                android:textSize="18sp"
                 android:id="@+id/tv_shops"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -311,6 +332,7 @@
             android:orientation="horizontal"
             android:background="#ffffff">
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_rental_shops"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -322,6 +344,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_shop_for_sale"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -333,6 +356,7 @@
                 android:layout_height="match_parent"
                 android:background="#dddddd"/>
             <TextView
+                android:textSize="16sp"
                 android:id="@+id/tv_business_transfer"
                 android:gravity="center"
                 android:layout_weight="1"
@@ -344,5 +368,66 @@
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="#dddddd"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ffffff"
+            >
+            <TextView
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商业地产"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/colorPrimary"/>
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dddddd"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffffff">
+            <TextView
+                android:textSize="16sp"
+                android:id="@+id/tv_rental_office"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="写字楼出租"/>
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dddddd"/>
+            <TextView
+                android:textSize="16sp"
+                android:id="@+id/tv_rental_warehouse"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="仓库出租"/>
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dddddd"/>
+            <TextView
+                android:textSize="16sp"
+                android:id="@+id/tv_rental_plant"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="厂房出租"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#dddddd"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 </ScrollView>

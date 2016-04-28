@@ -45,7 +45,7 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
 
     //view
     private EditText mSendTextEt;
-    private ImageView mSendtBtn;
+    private ImageView mSendtBtn,img_back;
     private RecyclerView mChatList;
 
     //adapter
@@ -55,8 +55,8 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
     //变量
     private InputMethodManager mImm;
     private Socket socket=null;
-    private String receiver_user_name="";
-
+    private String receiver_user_name="",send_user_head="";
+    private MessageInfo message;
     private ArrayList<MessageInfo> messageInfos;
     private Handler mHandler=new Handler(){
         @Override
@@ -97,6 +97,7 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
     protected void initView() {
         mSendtBtn = (ImageView) findViewById(R.id.img_chat_send);
         mSendTextEt = (EditText) findViewById(R.id.et_chat_sendText);
+        img_back=(ImageView)findViewById(R.id.iv_back);
     }
 
     @Override
@@ -107,6 +108,7 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
     @Override
     protected void initListener() {
         mSendtBtn.setOnClickListener(this);
+        img_back.setOnClickListener(this);
     }
 
     @Override
@@ -127,13 +129,18 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
         mChatList.setLayoutManager(linearLayoutManager);
         mChatAdapter = new ChatAdapter(mContext, messageInfos);
         mChatAdapter.setUser(getSharedPreferences("user",0).getString("user_name",""));
+        mChatAdapter.setSend_user_head(send_user_head);
+        mChatAdapter.setReceive_user_head(getSharedPreferences("user",0).getString("user_head",""));
+        Log.i("ming","message.size:  "+messageInfos.size());
+        mChatList.smoothScrollToPosition(messageInfos.size());
         mChatList.setAdapter(mChatAdapter);
     }
     private void setMessage(){
         messageInfos=new ArrayList<>();
-
+        send_user_head=getIntent().getStringExtra("send_user_head");
         receiver_user_name=getIntent().getStringExtra("receiver_user_name");
-        Log.i("ming","receiver_user_name:　"+receiver_user_name);
+        message=(MessageInfo)getIntent().getSerializableExtra("message");
+        Log.i("ming","receive_user_id:　"+message.getReceive_user_id()+ "  send_user_id:　　"+message.getSend_user_id());
         OkHttpClientManager.postAsyn(Configs.QUERY_MESSAGE_BY_RECEIVE_AND_SEND, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -171,12 +178,14 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
                 SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 messageInfo.setMessage_date(formatter.format(date));
                 messageInfo.setMessage_content(mSendTextEt.getText().toString());
-                Log.i("ming","messageInfo()");
+
+                messageInfo.setSend_user_id(message.getReceive_user_id());
+                messageInfo.setReceive_user_id(message.getSend_user_id());
+                saveMessage(messageInfo);
                 new Thread(){
                     @Override
                     public void run() {
                         super.run();
-                        Log.i("ming","thread()");
                         connectServerWithTCPSocket(messageInfo);
                     }
                 }.start();
@@ -186,7 +195,25 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
                 initChatList();
 
                 break;
+            case R.id.iv_back:
+                finish();
+                break;
         }
+    }
+    //保存消息
+    private void saveMessage(MessageInfo message) {
+        Log.i("ming","message:  "+new Gson().toJson(message));
+        OkHttpClientManager.postAsyn(Configs.ADD_MESSAGE, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                Log.i("ming","response:　"+response);
+            }
+        },new OkHttpClientManager.Param("message",new Gson().toJson(message)));
     }
 
     @Override
@@ -198,7 +225,7 @@ public class MyNotificationDesActivity extends BaseActivity implements View.OnCl
             public void run() {
                 try {
                     Log.i("ming","socket before");
-                    socket=new Socket("192.168.253.1",2133);
+                    socket=new Socket(Configs.SOCKET,2133);
                     Log.i("ming","socket after  "+socket.hashCode());
                 } catch (IOException e) {
                     e.printStackTrace();

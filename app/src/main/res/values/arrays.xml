@@ -75,14 +75,12 @@
     </array>
 
     <array name="house_release_type">
-        <item>整套出租</item>
+        <item>租房</item>
         <item>二手房</item>
-        <item>商铺出租/生意转让</item>
+        <item>新房</item>
         <item>单间出租</item>
-        <item>求租房</item>
-        <item>短租房/日租房</item>
-        <item>厂房/仓库/土地</item>
-        <item>写字楼</item>
+        <item>商铺</item>
+        <item>商业地产</item>
     </array>
     
     <array name="house_renovation_type">
@@ -91,6 +89,13 @@
         <item>精装修</item>
         <item>豪华装修</item>
         <item>中等装修</item>
+    </array>
+
+    <array name="house_orientation">
+        <item>东向</item>
+        <item>西向</item>
+        <item>南向</item>
+        <item>北向</item>
     </array>
 
 </resources>

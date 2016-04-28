@@ -28,7 +28,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private ReleaseFragment mMessageFragment;
     private MarketFragment mMarketFragment;
     private HomePageFragment mHomePageFragment;
-    private HouseReleaseFragment mHouseReleaseFragment;
+    private HouseTypeFragment mHouseReleaseFragment;
 
     public Fragment getmCurrentFragment() {
         return mCurrentFragment;
@@ -68,7 +68,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private void initFragment() {
         mCouresFragment = new MainCourseFragment();
         mMessageFragment = new ReleaseFragment();
-        mHouseReleaseFragment=new HouseReleaseFragment();
+        mHouseReleaseFragment=new HouseTypeFragment();
         mMarketFragment=new MarketFragment();
         mHomePageFragment=new HomePageFragment();
 //        mCurrentFragment = mCouresFragment;
@@ -132,7 +132,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
             mMessageText.setTextColor(getResources().getColor(R.color.colorBottomTextNoSelected));
             ((MainActivity) mContext).selectNevigationText(DrawerBaseActivity.COURSE);
         } else {
-            ((AppCompatActivity) mContext).getSupportActionBar().setTitle("发布");
+            ((AppCompatActivity) mContext).getSupportActionBar().setTitle("选择发布类别");
 //            mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mMessageFragment).commit();
             mFragmentManager.beginTransaction().replace(R.id.fragment_main_mainContainer, mHouseReleaseFragment).commit();
             ((TextView) v).setTextColor(getResources().getColor(R.color.colorBottomTextSelected));
