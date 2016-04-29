@@ -19,9 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/home_icon_cg_house"
             android:gravity="center"
-            android:text="二手市场"
+            android:text="房源信息"
             android:textColor="@color/colorBottomTextSelected"
             android:textSize="14sp"/>
 
@@ -30,9 +30,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableTop="@drawable/home_icon_cg_sale"
             android:gravity="center"
-            android:text="发布"
+            android:text="发布房源"
             android:textColor="@color/colorBottomTextNoSelected"
             android:textSize="14sp"/>
 

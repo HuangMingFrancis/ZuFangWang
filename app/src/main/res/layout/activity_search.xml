@@ -38,7 +38,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="10dp"
                 android:background="@android:color/white"
-                android:hint="搜索二手物品"
+                android:hint="搜索房源"
                 android:padding="10dp"
                 android:textSize="14sp"/>
         </LinearLayout>

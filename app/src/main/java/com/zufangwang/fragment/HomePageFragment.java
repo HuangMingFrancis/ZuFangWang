@@ -209,7 +209,8 @@ public class HomePageFragment extends BaseFragment {
         ButterKnife.reset(this);
     }
 
-    @OnClick({R.id.tv_more_house, R.id.tv_individual_housing, R.id.tv_spacious_master_bedroom, R.id.tv_charge_one_to_pay, R.id.tv_easy_communication, R.id.tv_quality_short_rent, R.id.tv_single_apartment, R.id.tv_price_listings, R.id.tv_just_need_to_home, R.id.tv_school_district_housing, R.id.tv_tax_exempt_listings, R.id.tv_improve_sanju, R.id.tv_improvement_room, R.id.tv_quality_new_plate, R.id.tv_two_bedroom_houses, R.id.tv_three_bedroom_houses, R.id.tv_rental_shops, R.id.tv_shop_for_sale, R.id.tv_business_transfer})
+    @OnClick({R.id.tv_more_house, R.id.tv_individual_housing, R.id.tv_spacious_master_bedroom, R.id.tv_charge_one_to_pay, R.id.tv_easy_communication, R.id.tv_quality_short_rent, R.id.tv_single_apartment, R.id.tv_price_listings, R.id.tv_just_need_to_home, R.id.tv_school_district_housing, R.id.tv_tax_exempt_listings, R.id.tv_improve_sanju, R.id.tv_improvement_room, R.id.tv_quality_new_plate, R.id.tv_two_bedroom_houses,
+            R.id.tv_three_bedroom_houses, R.id.tv_rental_shops, R.id.tv_shop_for_sale, R.id.tv_business_transfer,R.id.tv_rental_office,R.id.tv_rental_warehouse,R.id.tv_rental_plant})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_more_house:

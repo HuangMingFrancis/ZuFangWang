@@ -15,11 +15,14 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zufangwang.activity.GoodDesActivity;
+import com.zufangwang.activity.HouseDesActivity;
+import com.zufangwang.adapter.HouseItemAdapter;
 import com.zufangwang.base.BaseAdapter;
 import com.zufangwang.base.BaseFragment;
 import com.zufangwang.base.Configs;
 import com.zufangwang.entity.CollectInfo;
 import com.zufangwang.entity.GoodsInfo;
+import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.listener.OnItemClickListener;
 import com.zufangwang.listener.OnItemLongClickListener;
 import com.zufangwang.francis.zufangwang.R;
@@ -41,8 +44,8 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
     private RecyclerView recycler_my_collect;
     private SwipeRefreshLayout swipe_collect_list;
     private ArrayList<CollectInfo> collectInfos;
-    private ArrayList<GoodsInfo> goodsInfos;
-    private CollectAdapter collectAdapter;
+    private ArrayList<HouseInfo> houseInfos;
+    private HouseItemAdapter houseItemAdapter;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_my_collect;
@@ -76,10 +79,9 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
 
     }
     private void getCollect(){
-        Log.i("ming","getCollect");
         collectInfos=new ArrayList<>();
         swipe_collect_list.setRefreshing(true);
-        OkHttpClientManager.postAsyn(Configs.GETCOLLECT, new OkHttpClientManager.ResultCallback<String>() {
+        OkHttpClientManager.postAsyn(Configs.GETCOLLECT_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
                 Toast.makeText(getActivity(), Configs.URLERROR,Toast.LENGTH_SHORT).show();
@@ -87,7 +89,7 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
 
             @Override
             public void onResponse(String response) {
-                Log.i("ming","getCollect    onResponse:  "+response);
+                Log.i("ming","GETCOLLECT_HOUSE    onResponse:  "+response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject;
@@ -107,7 +109,7 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
                     e.printStackTrace();
                 }
             }
-        }, new OkHttpClientManager.Param("user_name", getActivity().getSharedPreferences("user",0).getString("user_name","")));
+        }, new OkHttpClientManager.Param("user_id", getActivity().getSharedPreferences("user",0).getString("user_id","")));
     }
     private void initCollectList(){
         swipe_collect_list.setRefreshing(false);
@@ -115,22 +117,22 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
             tv_hint_my_collect.setVisibility(View.GONE);
             recycler_my_collect.setVisibility(View.VISIBLE);
         }
-        Log.i("ming","initCollectList:  "+goodsInfos.size());
-        collectAdapter=new CollectAdapter(getActivity(),goodsInfos);
+//        collectAdapter=new CollectAdapter(getActivity(),goodsInfos);
+        houseItemAdapter=new HouseItemAdapter(getActivity(),houseInfos);
 //        recycler_my_collect.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recycler_my_collect.setAdapter(collectAdapter);
+        recycler_my_collect.setAdapter(houseItemAdapter);
 
         //item点击事件
-        collectAdapter.setOnItemClickListener(new OnItemClickListener() {
+        houseItemAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent=new Intent(getActivity(), GoodDesActivity.class);
-                intent.putExtra("goodsinfo",goodsInfos.get(position));
+                Intent intent=new Intent(getActivity(), HouseDesActivity.class);
+                intent.putExtra("house_info",houseInfos.get(position));
                 startActivity(intent);
             }
         });
         //长按item弹出对话框是否删除收藏记录
-        collectAdapter.setOnItemLongClickListener(new OnItemLongClickListener() {
+        houseItemAdapter.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(View view, final int position) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -140,7 +142,7 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        deleteMyCollect(goodsInfos.get(position));
+                        deleteMyCollect(houseInfos.get(position));
                     }
                 });
                 builder.create().show();
@@ -188,11 +190,10 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
     }
     //由收藏列表获得商品列表
     private void getGoodsList(){
-        Log.i("ming","getGoodsList:  ");
-        goodsInfos=new ArrayList<>();
+        houseInfos=new ArrayList<>();
         for (final CollectInfo collectInfo: collectInfos){
             Log.i("ming","collectinfo user_no :  "+collectInfos.get(0).getGoods_no());
-            OkHttpClientManager.postAsyn(Configs.QUERYGOODS_BY_GOODSNO, new OkHttpClientManager.ResultCallback<String>() {
+            OkHttpClientManager.postAsyn(Configs.QUERYGOODS_BY_HOUSENO, new OkHttpClientManager.ResultCallback<String>() {
                 @Override
                 public void onError(Request request, Exception e) {
                     Toast.makeText(getActivity(),Configs.URLERROR,Toast.LENGTH_SHORT).show();
@@ -201,19 +202,19 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
                 @Override
                 public void onResponse(String response) {
                     Log.i("ming","getGoodsList  response:  "+response);
-                    GoodsInfo goodsInfo=new Gson().fromJson(response,GoodsInfo.class);
-                    goodsInfos.add(goodsInfo);
-                    Log.i("ming","goodsInfos in ok:  "+goodsInfos.size());
-                    if (goodsInfos.size()==collectInfos.size())
+                    HouseInfo houseInfo=new Gson().fromJson(response,HouseInfo.class);
+                    houseInfos.add(houseInfo);
+                    Log.i("ming","houseInfos in ok:  "+houseInfos.size());
+                    if (houseInfos.size()==collectInfos.size())
                         initCollectList();
                 }
-            },new OkHttpClientManager.Param("goods_no",collectInfo.getGoods_no()));
+            },new OkHttpClientManager.Param("house_no",collectInfo.getGoods_no()));
         }
 
     }
     //删除我的收藏
-    private void deleteMyCollect(final GoodsInfo goodsInfo){
-        OkHttpClientManager.postAsyn(Configs.DELETECOLLECT, new OkHttpClientManager.ResultCallback<String>() {
+    private void deleteMyCollect(final HouseInfo houseInfo){
+        OkHttpClientManager.postAsyn(Configs.DELETECOLLECT_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
                 Toast.makeText(getActivity(),Configs.URLERROR,Toast.LENGTH_SHORT).show();
@@ -222,14 +223,15 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
             @Override
             public void onResponse(String response) {
                 if (response.equals("1")){
-                    goodsInfos.remove(goodsInfo);
+                    houseInfos.remove(houseInfo);
                     initCollectList();
                 }
 
             }
         },new OkHttpClientManager.Param[]{
-                new OkHttpClientManager.Param("goods_no",String.valueOf(goodsInfo.getGoods_no())),
-                new OkHttpClientManager.Param("user_name",getActivity().getSharedPreferences("user",0).getString("user_name",""))
+                new OkHttpClientManager.Param("house_no",String.valueOf(houseInfo.getHouse_no())),
+                new OkHttpClientManager.Param("user_name",getActivity().getSharedPreferences("user",0).getString("user_name","")),
+                new OkHttpClientManager.Param("user_id",getActivity().getSharedPreferences("user",0).getString("user_id",""))
         });
     }
 

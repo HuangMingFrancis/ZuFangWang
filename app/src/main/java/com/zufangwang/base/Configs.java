@@ -40,12 +40,17 @@ public class Configs {
     public static final String URL="http://192.168.253.1:8080/Taobao/";
     //获得收藏者
     public static final String GETCOLLECT=URL+"queryallcollect";
+    public static final String GETCOLLECT_HOUSE=URL+"queryallcollecthouse";
+    public static final String GETCOLLECT_A_HOUSE=URL+"querycollecthouse";
     //添加收藏者
     public static final String ADDCOLLECT=URL+"insertcollect";
+    public static final String ADDCOLLECT_HOUSE=URL+"insertcollecthouse";
     //删除收藏者
     public static final String DELETECOLLECT=URL+"deletecollect";
+    public static final String DELETECOLLECT_HOUSE=URL+"deletecollecthouse";
     //根据goods_no查找商品
     public static final String QUERYGOODS_BY_GOODSNO=URL+"queryagoods";
+    public static final String QUERYGOODS_BY_HOUSENO=URL+"queryhouse";
     //根据goods_category_no查找商品列表
     public static final String QUERYGOODS_BY_GOODSCATEGORY=URL+"querygoods";
     //发布商品
@@ -56,6 +61,7 @@ public class Configs {
     public static final String UPDATE_GOODS=URL+"updategoods";
     //输入查询条件获得商品
     public static final String SEARCH_GOODS=URL+"searchgoods";
+    public static final String SEARCH_HOUSE=URL+"searchhouse";
     //查询所有聊天信息
     public static final String QUERY_ALL_MESSAGE=URL+"querymessages";
     //删除聊天信息
@@ -76,11 +82,10 @@ public class Configs {
     public static final String ADD_HOUSE=URL+"inserthouse";
     //查找所有房源
     public static final String QUERY_ALL_HOUSE=URL+"queryallhouse";
-
     //根据条件类型查找房源
     public static final String QUERY_HOUSE_BY_CONDITION=URL+"queryhousebycondition";
-
-
+    //在列表中查找房源
+    public static final String QUERY_HOUSE_IN_LIST=URL+"queryhouseinlist";
 
     //请求出错
     public static final String URLERROR="网络请求出错,请检查!";

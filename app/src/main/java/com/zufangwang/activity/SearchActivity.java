@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,11 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.zufangwang.adapter.HouseItemAdapter;
 import com.zufangwang.adapter.SearchTabPagerAdapter;
 import com.zufangwang.base.BaseActivity;
 import com.zufangwang.base.BaseAdapter;
 import com.zufangwang.base.Configs;
 import com.zufangwang.entity.GoodsInfo;
+import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.listener.OnItemClickListener;
 import com.zufangwang.francis.zufangwang.R;
 import com.zufangwang.utils.OkHttpClientManager;
@@ -41,8 +44,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     private EditText mSearchText;
     private LinearLayout llyt_history;
     private RecyclerView recycle_search;
-    private ArrayList<GoodsInfo> goodsInfos;
-    private GoodsAdapter goodsAdapter;
+    private ArrayList<HouseInfo> houseInfos;
+    private HouseItemAdapter houseItemAdapter;
 
 
     //adpter
@@ -81,7 +84,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 if (!mSearchText.getText().toString().equals(""))
                 searchGoods(mSearchText.getText().toString());
                 else {
-                    goodsInfos.clear();
+                    houseInfos.clear();
                     setGoodsList();
                 }
             }
@@ -117,8 +120,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     }
     //输入搜索条件
     private void searchGoods(String data){
-        goodsInfos=new ArrayList<>();
-        OkHttpClientManager.postAsyn(Configs.SEARCH_GOODS, new OkHttpClientManager.ResultCallback<String>() {
+        houseInfos=new ArrayList<>();
+        OkHttpClientManager.postAsyn(Configs.SEARCH_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
                 Toast.makeText(getApplication(), Configs.URLERROR,Toast.LENGTH_SHORT).show();
@@ -126,14 +129,15 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onResponse(String response) {
+                Log.i("ming","SEARCH_HOUSE  response:  "+response);
                 try {
                     JSONArray jsonArray = new JSONArray(response);
                     JSONObject jsonObject;
-                    GoodsInfo goodsInfo;
+                    HouseInfo houseInfo;
                     for (int i=0;i<jsonArray.length();i++){
                         jsonObject=jsonArray.getJSONObject(i);
-                        goodsInfo=new Gson().fromJson(jsonObject.toString(),GoodsInfo.class);
-                        goodsInfos.add(goodsInfo);
+                        houseInfo=new Gson().fromJson(jsonObject.toString(),HouseInfo.class);
+                        houseInfos.add(houseInfo);
                     }
                     setGoodsList();
                 } catch (JSONException e) {
@@ -144,39 +148,17 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     }
     //显示查询后的商品列表
     private void setGoodsList(){
-        goodsAdapter=new GoodsAdapter(this,goodsInfos);
+        houseItemAdapter=new HouseItemAdapter(this,houseInfos);
         recycle_search.setLayoutManager(new LinearLayoutManager(this));
-        recycle_search.setAdapter(goodsAdapter);
-        goodsAdapter.setOnItemClickListener(new OnItemClickListener() {
+        recycle_search.setAdapter(houseItemAdapter);
+        houseItemAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent=new Intent(getApplicationContext(), GoodDesActivity.class);
-                intent.putExtra("goodsinfo",goodsInfos.get(position));
+                Intent intent=new Intent(getApplicationContext(), HouseDesActivity.class);
+                intent.putExtra("house_info",houseInfos.get(position));
                 startActivity(intent);
             }
         });
-    }
-
-    class GoodsAdapter extends BaseAdapter<GoodsInfo>{
-        public GoodsAdapter(Context mContext, List<GoodsInfo> mDataList) {
-            super(mContext, mDataList);
-        }
-
-        @Override
-        protected int getItemLayoutId(int viewType) {
-            return R.layout.item_search_goods;
-        }
-
-        @Override
-        protected void bindData(ViewHolder holder, int position, GoodsInfo item) {
-            TextView tv_goods_name,tv_goods_price;
-            tv_goods_name=(TextView)holder.getViewById(R.id.tv_goods_name);
-            tv_goods_price=(TextView)holder.getViewById(R.id.tv_goods_price);
-
-            tv_goods_name.setText(goodsInfos.get(position).getGoods_name());
-
-            tv_goods_price.setText(goodsInfos.get(position).getGoods_price());
-        }
     }
 
 }

@@ -175,12 +175,12 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
                 intent.putExtra("fragment_type",3);
                 startActivity(intent);
                 break;
-            case R.id.notify:
-                Intent intent1=new Intent(mContext,ChatActivity.class);
-                intent1.putExtra("type","我的消息");
-                intent1.putExtra("fragment_type",4);
-                startActivity(intent1);
-                break;
+//            case R.id.notify:
+//                Intent intent1=new Intent(mContext,ChatActivity.class);
+//                intent1.putExtra("type","我的消息");
+//                intent1.putExtra("fragment_type",4);
+//                startActivity(intent1);
+//                break;
         }
         return true;
     }
@@ -269,7 +269,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     public boolean onPrepareOptionsMenu(Menu menu) {
         boolean isOpen = mDrawerContainer.isDrawerVisible(mfl_main_drawerContent);
         menu.findItem(R.id.search).setVisible(!isOpen);
-        menu.findItem(R.id.notify).setVisible(!isOpen);
+//        menu.findItem(R.id.notify).setVisible(!isOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 

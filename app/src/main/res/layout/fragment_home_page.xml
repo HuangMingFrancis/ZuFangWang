@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <ImageView
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="#dddddd"/>
@@ -16,6 +17,7 @@
             android:layout_height="240dp"
             android:id="@+id/recycle_house"/>
         <ImageView
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#dddddd"/>
@@ -38,7 +40,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"/>
+            android:background="@color/juse"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -142,7 +144,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"/>
+            android:background="@color/juse"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -245,7 +247,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"/>
+            android:background="@color/juse"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -306,7 +308,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"/>
+            android:background="@color/juse"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -367,7 +369,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"/>
+            android:background="@color/juse"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -427,7 +429,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="#dddddd"
+            android:background="@color/juse"
             android:layout_marginBottom="20dp"/>
     </LinearLayout>
 </ScrollView>

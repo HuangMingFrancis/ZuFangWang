@@ -151,6 +151,7 @@ public class ReleaseHouseDesFragment extends Fragment implements View.OnClickLis
 
                     @Override
                     public void onResponse(String response) {
+                        Log.i("ming","ADD_HOUSE response:   "+response);
                         if (response.equals("1")) {
                             Toast.makeText(context, "房源发布成功", Toast.LENGTH_SHORT).show();
                             ((ReleaseHouseDesActivity)context).succeedRelease();

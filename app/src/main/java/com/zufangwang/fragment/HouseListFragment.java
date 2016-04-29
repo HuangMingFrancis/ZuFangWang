@@ -22,6 +22,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
 import com.zufangwang.activity.HouseDesActivity;
 import com.zufangwang.adapter.HouseItemAdapter;
@@ -30,6 +31,9 @@ import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.francis.zufangwang.R;
 import com.zufangwang.listener.OnItemClickListener;
 import com.zufangwang.utils.OkHttpClientManager;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,13 +83,12 @@ public class HouseListFragment extends Fragment {
     }
 
     private void showList() {
+        houseItemAdapter=new HouseItemAdapter(mContext,houseInfos);
+        recycleHouse.setAdapter(houseItemAdapter);
         if (houseInfos.size()<=0){
             Toast.makeText(mContext,"暂时没有您要的数据",Toast.LENGTH_SHORT).show();
             return;
         }
-        houseItemAdapter=new HouseItemAdapter(mContext,houseInfos);
-
-        recycleHouse.setAdapter(houseItemAdapter);
         clickItem();
     }
 
@@ -171,6 +174,7 @@ public class HouseListFragment extends Fragment {
                     imageView.setVisibility(View.VISIBLE);
                     recycler_second.setVisibility(View.GONE);
                     tvHouseLocation.setText(location[position]);
+                    queryHouse();
                     popWindow.dismiss();
                     return;
                 }
@@ -193,6 +197,7 @@ public class HouseListFragment extends Fragment {
                 location_position2 =position;
                 adapter1.setSelected(position,adapter1);
                 tvHouseLocation.setText(location1[position]);
+                queryHouse();
                 View v = recycler_second.getChildAt(0);
                 location_top2 = (v == null) ? 0 : v.getTop();
                 popWindow.dismiss();
@@ -203,7 +208,9 @@ public class HouseListFragment extends Fragment {
     }
     //查找房源
     private void queryHouse() {
-        OkHttpClientManager.postAsyn("", new OkHttpClientManager.ResultCallback<String>() {
+        Log.i("ming","queryHouse");
+        houseInfos.clear();
+        OkHttpClientManager.postAsyn(Configs.QUERY_HOUSE_IN_LIST, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
                 Toast.makeText(mContext, Configs.URLERROR,Toast.LENGTH_SHORT).show();
@@ -211,7 +218,21 @@ public class HouseListFragment extends Fragment {
 
             @Override
             public void onResponse(String response) {
-
+                Log.i("ming","QUERY_HOUSE_IN_LIST  response"+response);
+                try {
+                    JSONArray data=new JSONArray(response);
+                    for (int i=0;i<data.length();i++){
+                        HouseInfo houseInfo=new Gson().fromJson(data.getString(i),HouseInfo.class);
+                        houseInfos.add(houseInfo);
+                    }
+//                    if (houseInfos.size()<=0){
+//                        Toast.makeText(mContext,"暂时没有您要的数据",Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+                    showList();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         },new OkHttpClientManager.Param[]{
                 new OkHttpClientManager.Param("house_address",tvHouseLocation.getText().toString()),
@@ -237,6 +258,7 @@ public class HouseListFragment extends Fragment {
                     selectPriceDialog();
                 }
                 tvHousePrice.setText(house_price[position]);
+                queryHouse();
                 View v = lv_house_price.getChildAt(0);
                 price_top = (v == null) ? 0 : v.getTop();
                 popWindow.dismiss();
@@ -261,6 +283,7 @@ public class HouseListFragment extends Fragment {
                 mode_position=position;
                 mode_adapter.setSelected(position,mode_adapter);
                 tvHouseMode.setText(house_mode[position]);
+                queryHouse();
                 View v = lv_house_mode.getChildAt(0);
                 mode_top = (v == null) ? 0 : v.getTop();
                 popWindow.dismiss();
@@ -373,6 +396,7 @@ public class HouseListFragment extends Fragment {
                     return;
                 }
                 tvHousePrice.setText(et_low_price.getText().toString()+"-"+et_high_price.getText().toString()+"元");
+                queryHouse();
                 alertDialog.dismiss();
                 popWindow.dismiss();
             }

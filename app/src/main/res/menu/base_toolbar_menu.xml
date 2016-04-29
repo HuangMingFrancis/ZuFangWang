@@ -12,8 +12,8 @@
           android:icon="@drawable/ic_grade"
           app:showAsAction="always"
           android:title=""></item>
-    <item android:id="@+id/notify"
+<!--    <item android:id="@+id/notify"
         android:icon="@drawable/ic_notifications"
         app:showAsAction="always"
-        android:title=""></item>
+        android:title=""></item>-->
 </menu>
