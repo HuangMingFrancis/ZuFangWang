@@ -43,6 +43,7 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
     private Animation rightOutAnimation;
     private Context mContext;
     private User user=null;
+    private String user_name,user_psw;
     private AlertDialog dialog_login,dialog_register,dialog_confirm_login,dialog_loading;
 
     private Handler handler=new Handler(){
@@ -74,9 +75,10 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
                         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        saveUser();
-                                        startActivity(new Intent(mContext, MainActivity.class));
-                                        finish();
+//                                        saveUser();
+                                        setLogin(user_name,user_psw);
+//                                        startActivity(new Intent(mContext, MainActivity.class));
+//                                        finish();
                                     }
                                 }
                         );
@@ -109,8 +111,8 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
     private void initDatas() {
         detector = new GestureDetector(this);
 
-        vf_login.addView(getImageView(R.drawable.house_hezu));
-        vf_login.addView(getImageView(R.drawable.house_secondhouse));
+        vf_login.addView(getImageView(R.drawable.tupian1));
+        vf_login.addView(getImageView(R.drawable.tupian2));
         vf_login.addView(getImageView(R.drawable.house_shangpuchushou));
 
         // 动画效果
@@ -201,6 +203,7 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
             return;
         }
         dialog_loading.show();
+        Log.i("ming","name: "+name+"  psw:  "+psw+" url: "+Configs.USE_LOGIN );
         OkHttpClientManager.postAsyn(Configs.USE_LOGIN, new OkHttpClientManager.ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -237,6 +240,8 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
             return;
         }
         user=new User(0,name,psw,tel,"");
+        user_name=name;
+        user_psw=psw;
         dialog_loading.show();
         OkHttpClientManager.postAsyn(Configs.USE_REGISTER, new OkHttpClientManager.ResultCallback<String>() {
             @Override

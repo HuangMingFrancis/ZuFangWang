@@ -287,6 +287,7 @@ public class HomePageFragment extends BaseFragment {
         intent = new Intent(getActivity(), HouseList1Activity.class);
         intent.putExtra("house_condition", s1);
         intent.putExtra("house_type", s);
+        Log.i("ming","house_condition:  "+s1+"  housetyep:  "+s);
         startActivity(intent);
     }
 

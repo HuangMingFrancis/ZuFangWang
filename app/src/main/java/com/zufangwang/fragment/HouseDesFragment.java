@@ -158,19 +158,19 @@ public class HouseDesFragment extends Fragment {
 
         bitmapList = new ArrayList<>();
         ArrayList<String> imgs = new ArrayList<>();
-        imgs = new Gson().fromJson(houseInfo.getHouse_imgs(), ArrayList.class);
-        for (String img : imgs) {
-            bitmapList.add(Configs.base64ToBitmap(img));
-        }
-
-        if (bitmapList.size() > 0) {
-            for (Bitmap bitmap : bitmapList) {
-                vfLogin.addView(getImageView(bitmap));
+        if (!houseInfo.getHouse_imgs().equals("")){
+            imgs = new Gson().fromJson(houseInfo.getHouse_imgs(), ArrayList.class);
+            for (String img : imgs) {
+                bitmapList.add(Configs.base64ToBitmap(img));
             }
+            if (bitmapList.size() > 0) {
+                for (Bitmap bitmap : bitmapList) {
+                    vfLogin.addView(getImageView(bitmap));
+                }
+            }
+            initImgAdapter();
+            gvImg.setAdapter(imgAdapter);
         }
-
-        initImgAdapter();
-        gvImg.setAdapter(imgAdapter);
 
     }
 

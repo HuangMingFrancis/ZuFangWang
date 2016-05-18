@@ -36,8 +36,8 @@ public class Configs {
          */
         public static final int PHOTO_REQUEST_CUT = 3;// 结果
     }
-    //基本地址
-    public static final String URL="http://192.168.253.1:8080/Taobao/";
+    //基本地址http://192.168.253.1:8080/Taobao/    http://115.28.152.201:8080/SeondMarket/
+    public static final String URL="http://115.28.152.201:8080/SeondMarket/";
     //获得收藏者
     public static final String GETCOLLECT=URL+"queryallcollect";
     public static final String GETCOLLECT_HOUSE=URL+"queryallcollecthouse";
@@ -86,6 +86,8 @@ public class Configs {
     public static final String QUERY_HOUSE_BY_CONDITION=URL+"queryhousebycondition";
     //在列表中查找房源
     public static final String QUERY_HOUSE_IN_LIST=URL+"queryhouseinlist";
+
+    public static final String JUDGE_HOUSE_EXIST=URL+"judgehouseexist";
 
     //请求出错
     public static final String URLERROR="网络请求出错,请检查!";

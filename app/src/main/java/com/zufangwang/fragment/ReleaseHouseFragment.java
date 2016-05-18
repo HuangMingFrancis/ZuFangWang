@@ -252,11 +252,37 @@ public class ReleaseHouseFragment extends Fragment implements View.OnClickListen
                 etHouseTitle.getText().toString(),etHouseDes.getText().toString(),etHouseContacts.getText().toString(),etHouseContactsTel.getText().toString(),
                 new Gson().toJson(bitmapToStringList),df.format(new Date()),"",mContext.getSharedPreferences("user",0).getString("user_id",""));
         Log.i("ming","house:  "+new Gson().toJson(house));
-        Intent intent=new Intent(getActivity(), ReleaseHouseDesActivity.class);
-        intent.putExtra("house_info",house);
-        startActivity(intent);
-        ((ReleaseHouseActivity)mContext).succeedRelease();
 
+        judgeHouseExist(house);
+//        Intent intent=new Intent(getActivity(), ReleaseHouseDesActivity.class);
+//        intent.putExtra("house_info",house);
+//        startActivity(intent);
+//        ((ReleaseHouseActivity)mContext).succeedRelease();
+
+    }
+    //判断当前发布的房源是否已经存在
+    private void judgeHouseExist(final HouseInfo house) {
+        OkHttpClientManager.postAsyn(Configs.JUDGE_HOUSE_EXIST, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, Exception e) {
+                Toast.makeText(getContext(), Configs.URLERROR, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(String response) {
+                Log.i("ming","ADD_HOUSE response:   "+response);
+                if (!response.equals("1")) {
+                    Intent intent=new Intent(getActivity(), ReleaseHouseDesActivity.class);
+                    intent.putExtra("house_info",house);
+                    startActivity(intent);
+                    ((ReleaseHouseActivity)mContext).succeedRelease();
+                }
+                else{
+                    Toast.makeText(getContext(), "您已经发布过相同的房源，请重新填写地址或价格。", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        },new OkHttpClientManager.Param("house_info",new Gson().toJson(house)));
     }
 
     //获取图片

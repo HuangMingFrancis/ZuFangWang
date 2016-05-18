@@ -2,6 +2,7 @@ package com.zufangwang.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,9 +47,12 @@ public class HouseItemAdapter extends BaseAdapter<HouseInfo> {
         tv_house_title.setText(item.getHouse_title());
         tv_house_type.setText(item.getHouse_type());
         ArrayList<String> imgs=new ArrayList<>();
-        imgs=new Gson().fromJson(item.getHouse_imgs(),ArrayList.class);
-        if (imgs.size()>0){
-          img_house.setImageBitmap(Configs.base64ToBitmap(imgs.get(0)));
+        Log.i("ming","house imgs:  "+item.getHouse_imgs());
+        if (!item.getHouse_imgs().equals("")){
+            imgs=new Gson().fromJson(item.getHouse_imgs(),ArrayList.class);
+            if (imgs.size()>0){
+                img_house.setImageBitmap(Configs.base64ToBitmap(imgs.get(0)));
+            }
         }
     }
 }

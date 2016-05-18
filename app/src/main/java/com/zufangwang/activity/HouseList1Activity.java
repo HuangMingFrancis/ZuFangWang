@@ -42,6 +42,9 @@ public class HouseList1Activity extends DrawerBaseActivity {
         houseInfos=new ArrayList<>();
         house_condition=getIntent().getStringExtra("house_condition");
         house_type=getIntent().getStringExtra("house_type");
+
+        Log.i("ming","house_condition1:  "+house_condition+"  housetyep1:  "+house_type);
+
         getHouseInfo();
         super.initData();
     }
