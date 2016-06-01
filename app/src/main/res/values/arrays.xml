@@ -55,6 +55,38 @@
         <item>康乐</item>
         <item>SM附近</item>
     </array>
+    <array name="location_jimei">
+        <item>全集美</item>
+        <item>集源路</item>
+        <item>滨海西大道</item>
+        <item>石鼓路</item>
+        <item>同集南路</item>
+        <item>孙坂路</item>
+        <item>印斗路</item>
+        <item>乐海路</item>
+        <item>嘉庚体育馆</item>
+        <item>万达广场</item>
+        <item>孙厝</item>
+        <item>集美学村</item>
+    </array>
+    <array name="location_xinglin">
+        <item>全杏林</item>
+        <item>杏东路</item>
+        <item>杏西路</item>
+        <item>杏南路</item>
+        <item>杏北路</item>
+        <item>灌口</item>
+        <item>桥头</item>
+    </array>
+    <array name="location_haicang">
+        <item>全海沧</item>
+        <item>沧林路</item>
+        <item>海沧生活区</item>
+        <item>沧虹路</item>
+        <item>海富路</item>
+        <item>新阳工业区</item>
+        <item>钟林路</item>
+    </array>
 
     <array name="house_price">
         <item>不限</item>

@@ -11,9 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.okhttp.Request;
 import com.zufangwang.activity.RentalActivity;
 import com.zufangwang.base.BaseFragment;
+import com.zufangwang.base.Configs;
+import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.francis.zufangwang.R;
+import com.zufangwang.utils.OkHttpClientManager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +35,11 @@ public class RentalFragment extends BaseFragment implements View.OnClickListener
     private String date;
     private int index=0;
     private String price;
+    private HouseInfo houseInfo;
+
+    public void setHouseInfo(HouseInfo houseInfo) {
+        this.houseInfo = houseInfo;
+    }
 
     public void setPrice(String price) {
         this.price = price;
@@ -155,10 +164,28 @@ public class RentalFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(mContext,"租房成功",Toast.LENGTH_SHORT).show();
-                ((RentalActivity)getActivity()).getSucceed();
+                deleteHouse();
+
             }
         });
         builder.create().show();
+    }
+    //租房成功后删除该房源
+    private void deleteHouse() {
+        Log.i("ming","house_no:  "+houseInfo.getHouse_no());
+        OkHttpClientManager.postAsyn(Configs.DELETE_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
+            @Override
+            public void onError(Request request, Exception e) {
+
+            }
+
+            @Override
+            public void onResponse(String response) {
+                Log.i("ming","house_no  onResponse:  "+response);
+                if (response.equals("1"))
+                ((RentalActivity)getActivity()).getSucceed();
+            }
+        },new OkHttpClientManager.Param("house_no",String.valueOf(houseInfo.getHouse_no())));
     }
 
     @Override

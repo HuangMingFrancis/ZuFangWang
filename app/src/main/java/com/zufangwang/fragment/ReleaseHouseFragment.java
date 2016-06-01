@@ -115,6 +115,10 @@ public class ReleaseHouseFragment extends Fragment implements View.OnClickListen
         location_second=getActivity().getResources().getStringArray(R.array.location_siming);
         locationMap.put(location_first[0],getActivity().getResources().getStringArray(R.array.location_siming));
         locationMap.put(location_first[1],getActivity().getResources().getStringArray(R.array.location_huli));
+        locationMap.put(location_first[2],getActivity().getResources().getStringArray(R.array.location_jimei));
+        locationMap.put(location_first[3],getActivity().getResources().getStringArray(R.array.location_xinglin));
+        locationMap.put(location_first[4],getActivity().getResources().getStringArray(R.array.location_haicang));
+
 
         bitmapArrayList=new ArrayList<>();
         bitmapToStringList=new ArrayList<>();

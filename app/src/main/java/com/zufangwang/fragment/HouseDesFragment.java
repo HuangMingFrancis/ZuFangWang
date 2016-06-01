@@ -240,6 +240,7 @@ public class HouseDesFragment extends Fragment {
             case R.id.tv_chat:
                 Intent intent1=new Intent(context, RentalActivity.class);
                 intent1.putExtra("house_price",houseInfo.getHouse_price());
+                intent1.putExtra("house_info",houseInfo);
                 startActivity(intent1);
 //                if (houseInfo.getHouse_publish_id().equals(context.getSharedPreferences("user",0).getString("user_id","")))
 //                    Toast.makeText(context,"该房源是你发布的",Toast.LENGTH_SHORT).show();

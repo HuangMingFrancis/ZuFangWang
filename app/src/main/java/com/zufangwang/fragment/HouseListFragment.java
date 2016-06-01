@@ -112,6 +112,9 @@ public class HouseListFragment extends Fragment {
         location=mContext.getResources().getStringArray(R.array.location_first);
         locationMap.put(location[1],mContext.getResources().getStringArray(R.array.location_siming));
         locationMap.put(location[2],mContext.getResources().getStringArray(R.array.location_huli));
+        locationMap.put(location[3],mContext.getResources().getStringArray(R.array.location_jimei));
+        locationMap.put(location[4],mContext.getResources().getStringArray(R.array.location_xinglin));
+        locationMap.put(location[5],mContext.getResources().getStringArray(R.array.location_haicang));
     }
 
     @Override

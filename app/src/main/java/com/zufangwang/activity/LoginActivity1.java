@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import com.zufangwang.base.Configs;
 import com.zufangwang.entity.User;
 import com.zufangwang.francis.zufangwang.R;
+import com.zufangwang.utils.Code;
 import com.zufangwang.utils.OkHttpClientManager;
 import com.squareup.okhttp.Request;
 
@@ -45,6 +46,8 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
     private User user=null;
     private String user_name,user_psw;
     private AlertDialog dialog_login,dialog_register,dialog_confirm_login,dialog_loading;
+    private Code code;
+    private String codeString;
 
     private Handler handler=new Handler(){
         @Override
@@ -76,7 +79,7 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 //                                        saveUser();
-                                        setLogin(user_name,user_psw);
+                                        setLogin(user_name,user_psw,"",1);
 //                                        startActivity(new Intent(mContext, MainActivity.class));
 //                                        finish();
                                     }
@@ -152,12 +155,26 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
         dialog_login = new AlertDialog.Builder(mContext).create();
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_login, null);
         Button btn_login = (Button) view.findViewById(R.id.btn_login);
+        final ImageView imageView=(ImageView)view.findViewById(R.id.iv_code);
+        final EditText et_code=(EditText)view.findViewById(R.id.et_code);
+        Button btn_change_code=(Button)view.findViewById(R.id.btn_change_code);
+        imageView.setImageBitmap(code.getInstance().createBitmap());
+        Log.i("ming","code: "+code.getInstance().getCode());
+        codeString=code.getInstance().getCode();
+        btn_change_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageView.setImageBitmap(code.getInstance().createBitmap());
+                Log.i("ming","code: "+code.getInstance().getCode());
+                codeString=code.getInstance().getCode();
+            }
+        });
         final EditText et_username=(EditText)view.findViewById(R.id.et_username);
         final EditText et_userpsw=(EditText)view.findViewById(R.id.et_userpsw);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setLogin(et_username.getText().toString(),et_userpsw.getText().toString());
+                setLogin(et_username.getText().toString(),et_userpsw.getText().toString(),et_code.getText().toString(),0);
             }
         });
         dialog_login.setView(view);
@@ -197,11 +214,18 @@ public class LoginActivity1 extends AppCompatActivity implements View.OnClickLis
         return imageView;
     }
 
-    private void setLogin(String name,String psw) {
+    private void setLogin(String name,String psw,String code,int type) {
         if (name.equals("")||psw.equals("")){
             Toast.makeText(this,"用户名和密码不能为空",Toast.LENGTH_SHORT).show();
             return;
         }
+        if (type==0){
+            if (!code.equals(codeString)){
+                Toast.makeText(this,"验证码出错",Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
         dialog_loading.show();
         Log.i("ming","name: "+name+"  psw:  "+psw+" url: "+Configs.USE_LOGIN );
         OkHttpClientManager.postAsyn(Configs.USE_LOGIN, new OkHttpClientManager.ResultCallback<String>() {

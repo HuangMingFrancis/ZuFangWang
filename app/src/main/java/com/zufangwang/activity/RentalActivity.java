@@ -3,6 +3,7 @@ package com.zufangwang.activity;
 import android.support.v4.app.Fragment;
 
 import com.zufangwang.base.DrawerBaseActivity;
+import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.fragment.RentalFragment;
 import com.zufangwang.francis.zufangwang.R;
 
@@ -24,6 +25,7 @@ public class RentalActivity extends DrawerBaseActivity {
     @Override
     protected void initData() {
         rentalFragment.setPrice(getIntent().getStringExtra("house_price"));
+        rentalFragment.setHouseInfo((HouseInfo) getIntent().getSerializableExtra("house_info"));
         super.initData();
     }
 

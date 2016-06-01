@@ -84,6 +84,8 @@ public class Configs {
     public static final String QUERY_ALL_HOUSE=URL+"queryallhouse";
     //根据条件类型查找房源
     public static final String QUERY_HOUSE_BY_CONDITION=URL+"queryhousebycondition";
+    //租房成功后就删除该房源
+    public static final String DELETE_HOUSE=URL+"deletehouse";
     //在列表中查找房源
     public static final String QUERY_HOUSE_IN_LIST=URL+"queryhouseinlist";
 
