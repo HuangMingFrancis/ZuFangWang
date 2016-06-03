@@ -105,10 +105,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:numColumns="3"
-                android:visibility="gone">
+                >
 
             </com.zufangwang.view.GridViewForScrollView>
             <GridView
+                android:visibility="gone"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:id="@+id/gv_img1"

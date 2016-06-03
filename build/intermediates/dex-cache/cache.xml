@@ -6,119 +6,119 @@
         jumboMode="true"
         revision="23.0.2"
         sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.1.1_9de4bbb18c81b7be55a461cb87e6f2af528f6b51\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.1.0_4a86870522b8403e036ae7591ede0fd1a9af534e\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Francis\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\5.1.1\b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8\butterknife-5.1.1.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-5.1.1_f738cb1107e72dc32543d19f9236cf3474fd415d\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\Francis\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.4.0\40340c0748190fe897baf7bffbc1b282734294e5\okhttp-2.4.0.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-2.4.0_01ac17084690b113d425f386f04fb718618e862d\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.shamanland\fab\0.0.8\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="e58f2fb4991259b0d4e78c3b3dd686ec58736a29">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.shamanland-fab-0.0.8_c53fd91047d3be71272c453e31c22bdb0fac6b1c\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.1.1_a45f872bb514642e18b0a3ac7914de8d387c02b5\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.1.1_1d18f3dbca788f01d490c98c240bdee5cd39425d\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="619d7f8a95133263f0d37a4a85d4e703530bb35b">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b8fc0db42ee675047a872977ef5f743efc6e372f\classes.dex" />
-    </item>
-    <item
-        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.1.0_af4f37640cfb555c1999d6053328ee3cf52c6b6e\classes.dex" />
-    </item>
-    <item
-        jar="D:\Program Files\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.1.1_2ef9388cf1ab7f8b4d8d2671c2b534f6087a8a33\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_9de4bbb18c81b7be55a461cb87e6f2af528f6b51.jar" />
     </item>
     <item
         jar="D:\Program Files\Android\android-studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="a60a5e993c98c864010053cb901b7eab25306568">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.2.4_b7ee8add128d8fc27ec3efa175324e4fa5eb54bd\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\gson-2.2.4_b7ee8add128d8fc27ec3efa175324e4fa5eb54bd.jar" />
     </item>
     <item
         jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-2.0.0_cd1798ffd2981108fae49c76a9d6830c3ad7eb8b\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-2.0.0_cd1798ffd2981108fae49c76a9d6830c3ad7eb8b.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.1.0_4a86870522b8403e036ae7591ede0fd1a9af534e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Francis\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\5.1.1\b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8\butterknife-5.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\butterknife-5.1.1_f738cb1107e72dc32543d19f9236cf3474fd415d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Francis\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.4.0\40340c0748190fe897baf7bffbc1b282734294e5\okhttp-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\okhttp-2.4.0_01ac17084690b113d425f386f04fb718618e862d.jar" />
     </item>
     <item
         jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="9881e99584a432ecfeea63e68c7cad1c3feb9d76">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_8bde6624855b04f02d89a345196e9f68adee0d2f\classes.dex" />
+        sha1="2d4e0bb57f2422b3ae61caf26ce871c7df35cd18">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_8bde6624855b04f02d89a345196e9f68adee0d2f.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.shamanland\fab\0.0.8\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e58f2fb4991259b0d4e78c3b3dd686ec58736a29">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.shamanland-fab-0.0.8_c53fd91047d3be71272c453e31c22bdb0fac6b1c.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_a45f872bb514642e18b0a3ac7914de8d387c02b5.jar" />
     </item>
     <item
         jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.1.1_0dc969d2aa54e268a56b33f1d7b5a13bae615555\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_0dc969d2aa54e268a56b33f1d7b5a13bae615555.jar" />
     </item>
     <item
         jar="C:\Users\Francis\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.5.0\bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a\okio-1.5.0.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.5.0_bd201ab6f723a51da300a37debe7ec28a4a151c6\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\okio-1.5.0_bd201ab6f723a51da300a37debe7ec28a4a151c6.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_1d18f3dbca788f01d490c98c240bdee5cd39425d.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="f37e8c8f94edc0550a78a11f8e32a2db63a127d9">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\instant-run_b8fc0db42ee675047a872977ef5f743efc6e372f.jar" />
+    </item>
+    <item
+        jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-8.1.0_af4f37640cfb555c1999d6053328ee3cf52c6b6e.jar" />
     </item>
     <item
         jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.1.1_fa956813bcd6bb859acde6a504b0a062abf59f5c\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_fa956813bcd6bb859acde6a504b0a062abf59f5c.jar" />
+    </item>
+    <item
+        jar="D:\Program Files\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_2ef9388cf1ab7f8b4d8d2671c2b534f6087a8a33.jar" />
     </item>
     <item
         jar="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.1.1_3975d2256b19f9be7ec9d7822c763a1cdb3904fb\classes.dex" />
+        <dex dex="D:\Users\Francis\AndroidStudioProjects\ZuFangWang\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_3975d2256b19f9be7ec9d7822c763a1cdb3904fb.jar" />
     </item>
 
 </items>
