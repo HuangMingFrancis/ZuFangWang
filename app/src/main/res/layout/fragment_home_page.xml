@@ -142,10 +142,12 @@
         </LinearLayout>
 
         <ImageView
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="5dp"
             android:background="@color/juse"/>
         <RelativeLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="#ffffff"
@@ -165,6 +167,7 @@
             android:layout_height="1dp"
             android:background="#dddddd"/>
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -207,6 +210,7 @@
             android:layout_height="1dp"
             android:background="#dddddd"/>
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

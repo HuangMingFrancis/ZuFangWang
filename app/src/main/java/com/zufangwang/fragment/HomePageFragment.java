@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -95,6 +96,7 @@ public class HomePageFragment extends BaseFragment {
     TextView tvRentalPlant;
 
     private static final int GET_HOUSE = 100;
+    AlertDialog alert;
 
     private HouseItemAdapter houseItemAdapter;
     private Intent intent;
@@ -157,13 +159,20 @@ public class HomePageFragment extends BaseFragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recycleHouse.setLayoutManager(layoutManager);
 
-        getHouseInfo();
+//        getHouseInfo();
 
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getHouseInfo();
+    }
+
     //获得所有房源
     private void getHouseInfo() {
+        showLoadingDialog(getContext());
         houseInfos = new ArrayList<>();
         OkHttpClientManager.getAsyn(Configs.QUERY_ALL_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -184,8 +193,18 @@ public class HomePageFragment extends BaseFragment {
         });
     }
 
+//    private void showLoadingDialog() {
+//        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+//        alert=builder.create();
+//        View view=LayoutInflater.from(getContext()).inflate(R.layout.dialog_loading,null);
+//        alert.setView(view);
+//        alert.show();
+//    }
+
     //显示最近发布的两条房源信息
     private void showHouseList() {
+//        alert.dismiss();
+        closeLoadingDialog();
         if (houseInfos.size() <= 0) {
             recycleHouse.setVisibility(View.GONE);
             return;

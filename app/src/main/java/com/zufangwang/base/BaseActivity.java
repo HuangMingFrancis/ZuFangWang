@@ -3,9 +3,13 @@ package com.zufangwang.base;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
+import com.zufangwang.francis.zufangwang.R;
 import com.zufangwang.utils.ActivityCollector;
 
 
@@ -13,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     protected Context mContext;
-
+    AlertDialog alert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,4 +76,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
+//    public void showLoadingDialog(Context context) {
+//        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+//        alert=builder.create();
+//        View view= LayoutInflater.from(context).inflate(R.layout.dialog_loading,null);
+//        alert.setView(view);
+//        alert.show();
+//    }
+//
+//    public void closeLoadingDialog(){
+//        alert.dismiss();
+//    }
+
 }

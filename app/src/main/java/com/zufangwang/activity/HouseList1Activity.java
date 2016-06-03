@@ -1,8 +1,12 @@
 package com.zufangwang.activity;
 
+import android.content.Context;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -27,6 +31,7 @@ public class HouseList1Activity extends DrawerBaseActivity {
     HouseListFragment houseListFragment=new HouseListFragment();
     String house_condition,house_type;
     ArrayList<HouseInfo> houseInfos;
+    AlertDialog alert;
     @Override
     protected Fragment getLayoutFragment() {
         return houseListFragment;
@@ -50,6 +55,7 @@ public class HouseList1Activity extends DrawerBaseActivity {
     }
 
     private void getHouseInfo() {
+        showLoadingDialog();
         if (house_type.equals("")){
             OkHttpClientManager.getAsyn(Configs.QUERY_ALL_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
                 @Override
@@ -86,6 +92,7 @@ public class HouseList1Activity extends DrawerBaseActivity {
     //将json数据转换为数组
     private void jsonToHouseList(String response)
     {
+        closeLoadingDialog();
         try {
             JSONArray data=new JSONArray(response);
             for (int i=0;i<data.length();i++){
@@ -111,5 +118,17 @@ public class HouseList1Activity extends DrawerBaseActivity {
     protected void initToolBar() {
         super.initToolBar();
         getSupportActionBar().setTitle("房源信息");
+    }
+
+    public void showLoadingDialog() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
+        alert=builder.create();
+        View view= LayoutInflater.from(mContext).inflate(R.layout.dialog_loading,null);
+        alert.setView(view);
+        alert.show();
+    }
+
+    public void closeLoadingDialog(){
+        alert.dismiss();
     }
 }

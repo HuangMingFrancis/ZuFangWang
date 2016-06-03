@@ -2,25 +2,27 @@ package com.zufangwang.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.squareup.okhttp.internal.spdy.FrameReader;
 import com.zufangwang.adapter.HouseItemAdapter;
 import com.zufangwang.adapter.SearchTabPagerAdapter;
 import com.zufangwang.base.BaseActivity;
-import com.zufangwang.base.BaseAdapter;
 import com.zufangwang.base.Configs;
-import com.zufangwang.entity.GoodsInfo;
 import com.zufangwang.entity.HouseInfo;
 import com.zufangwang.listener.OnItemClickListener;
 import com.zufangwang.francis.zufangwang.R;
@@ -32,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by nan on 2016/3/12.
@@ -50,6 +51,21 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
 
     //adpter
     private SearchTabPagerAdapter mSearchTabsPagerAdapter;
+
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    closeLoadingDialog();
+                    Toast.makeText(getApplicationContext(),"暂无该条件的房源",Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    };
+
+    AlertDialog alert;
 
 
     @Override
@@ -82,7 +98,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if (!mSearchText.getText().toString().equals(""))
-                searchGoods(mSearchText.getText().toString());
+                searchHouses(mSearchText.getText().toString());
                 else {
                     houseInfos.clear();
                     setGoodsList();
@@ -119,7 +135,8 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         }
     }
     //输入搜索条件
-    private void searchGoods(String data){
+    private void searchHouses(String data){
+        showLoadingDialog();
         houseInfos=new ArrayList<>();
         OkHttpClientManager.postAsyn(Configs.SEARCH_HOUSE, new OkHttpClientManager.ResultCallback<String>() {
             @Override
@@ -131,15 +148,22 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
             public void onResponse(String response) {
                 Log.i("ming","SEARCH_HOUSE  response:  "+response);
                 try {
-                    JSONArray jsonArray = new JSONArray(response);
-                    JSONObject jsonObject;
-                    HouseInfo houseInfo;
-                    for (int i=0;i<jsonArray.length();i++){
-                        jsonObject=jsonArray.getJSONObject(i);
-                        houseInfo=new Gson().fromJson(jsonObject.toString(),HouseInfo.class);
-                        houseInfos.add(houseInfo);
+                    if (response.equals("[]")){
+                        handler.sendEmptyMessage(0);
                     }
-                    setGoodsList();
+                    else
+                    {
+                        JSONArray jsonArray = new JSONArray(response);
+                        JSONObject jsonObject;
+                        HouseInfo houseInfo;
+                        for (int i=0;i<jsonArray.length();i++){
+                            jsonObject=jsonArray.getJSONObject(i);
+                            houseInfo=new Gson().fromJson(jsonObject.toString(),HouseInfo.class);
+                            houseInfos.add(houseInfo);
+                        }
+                        setGoodsList();
+
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -148,6 +172,7 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
     }
     //显示查询后的商品列表
     private void setGoodsList(){
+        closeLoadingDialog();
         houseItemAdapter=new HouseItemAdapter(this,houseInfos);
         recycle_search.setLayoutManager(new LinearLayoutManager(this));
         recycle_search.setAdapter(houseItemAdapter);
@@ -161,4 +186,17 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
         });
     }
 
+
+
+    public void showLoadingDialog() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(mContext);
+        alert=builder.create();
+        View view= LayoutInflater.from(mContext).inflate(R.layout.dialog_loading,null);
+        alert.setView(view);
+        alert.show();
+    }
+
+    public void closeLoadingDialog(){
+        alert.dismiss();
+    }
 }

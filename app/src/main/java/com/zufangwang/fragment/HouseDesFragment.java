@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -113,6 +114,7 @@ public class HouseDesFragment extends Fragment {
     private Context context;
     private ArrayList<Bitmap> bitmapList;
     private BaseAdapter imgAdapter;
+    private GridView gridView;
 
     public void setHouseInfo(HouseInfo houseInfo) {
         this.houseInfo = houseInfo;

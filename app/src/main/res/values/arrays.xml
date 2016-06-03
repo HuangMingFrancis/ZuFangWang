@@ -108,7 +108,7 @@
 
     <array name="house_release_type">
         <item>租房</item>
-        <item>二手房</item>
+        <!--<item>二手房</item>-->
         <item>新房</item>
         <item>单间出租</item>
         <item>商铺</item>
