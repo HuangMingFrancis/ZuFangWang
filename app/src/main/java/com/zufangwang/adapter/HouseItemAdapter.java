@@ -22,9 +22,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by Francis on 2016/4/22.
  */
 public class HouseItemAdapter extends BaseAdapter<HouseInfo> {
-
+    List<HouseInfo> mDataList;
     public HouseItemAdapter(Context mContext, List<HouseInfo> mDataList) {
         super(mContext, mDataList);
+        this.mDataList=mDataList;
     }
 
     @Override
@@ -41,6 +42,8 @@ public class HouseItemAdapter extends BaseAdapter<HouseInfo> {
         tv_house_price=(TextView)holder.getViewById(R.id.tv_house_price);
         tv_house_title=(TextView)holder.getViewById(R.id.tv_house_title);
         tv_house_type=(TextView)holder.getViewById(R.id.tv_house_type);
+
+        item=mDataList.get(position);
 
         tv_house_address.setText(item.getHouse_address()+" "+item.getHouse_address_detail());
         tv_house_price.setText(item.getHouse_price()+"元/月");

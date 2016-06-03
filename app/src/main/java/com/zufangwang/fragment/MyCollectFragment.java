@@ -118,6 +118,7 @@ public class MyCollectFragment extends BaseFragment implements SwipeRefreshLayou
             recycler_my_collect.setVisibility(View.VISIBLE);
         }
 //        collectAdapter=new CollectAdapter(getActivity(),goodsInfos);
+        Log.i("ming","houseInfos   houseInfos :  "+houseInfos.size());
         houseItemAdapter=new HouseItemAdapter(getActivity(),houseInfos);
 //        recycler_my_collect.setLayoutManager(new LinearLayoutManager(getActivity()));
         recycler_my_collect.setAdapter(houseItemAdapter);

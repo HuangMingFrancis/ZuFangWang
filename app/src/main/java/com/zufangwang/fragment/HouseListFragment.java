@@ -65,6 +65,7 @@ public class HouseListFragment extends Fragment {
     private Context mContext;
     private ArrayList<HouseInfo> houseInfos=new ArrayList<>();
     private HouseItemAdapter houseItemAdapter;
+    private String first_location;
 
     public void setHouseInfos(ArrayList<HouseInfo> houseInfos) {
         this.houseInfos = houseInfos;
@@ -185,6 +186,7 @@ public class HouseListFragment extends Fragment {
                 recycler_second.setVisibility(View.VISIBLE);
                 for (Map.Entry<String, String[]> entry : locationMap.entrySet()) {
                     if (entry.getKey().equals(location[position])){
+                        first_location=entry.getKey();
                         location1=entry.getValue();
                     }
                 }
@@ -199,7 +201,8 @@ public class HouseListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 location_position2 =position;
                 adapter1.setSelected(position,adapter1);
-                tvHouseLocation.setText(location1[position]);
+                tvHouseLocation.setText(first_location+location1[position]);
+
                 queryHouse();
                 View v = recycler_second.getChildAt(0);
                 location_top2 = (v == null) ? 0 : v.getTop();
@@ -211,7 +214,7 @@ public class HouseListFragment extends Fragment {
     }
     //查找房源
     private void queryHouse() {
-        Log.i("ming","queryHouse");
+        Log.i("ming","queryHouse: "+tvHouseLocation.getText().toString());
         houseInfos.clear();
         OkHttpClientManager.postAsyn(Configs.QUERY_HOUSE_IN_LIST, new OkHttpClientManager.ResultCallback<String>() {
             @Override
